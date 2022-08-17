@@ -24,16 +24,13 @@ export class AppComponent {
   ]
   newUser:userVm= {id:0 , name:'' ,email:'' , age:0 ,password:''};
   i:number =this.UserList.length;
-  AddUser(form:NgForm){
+  AddUser(newUser:userVm){
     //this.UserList.push({...this.newUser})
    // let i=0;
-    if(!form.form.valid){
-    form.form.markAllAsTouched();
-    }else{
     this.UserList.push({id:this.i,name:this.newUser.name,age:this.newUser.age,email:this.newUser.email,password:this.newUser.password});
     this.i++;
   }
-  }
+  
   deleteUser(user: userVm){
     let i= this.UserList.indexOf(user);
     if (i>=0){
