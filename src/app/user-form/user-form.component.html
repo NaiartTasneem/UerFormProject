@@ -5,23 +5,23 @@
       
       <label> Name </label> 
       <div>
-      <input type="text" [(ngModel)]="newUser.name" required name="newUser.name">
+      <input type="text" [(ngModel)]="NewUser.name" required name="newUser.name">
       <span *ngIf="form.form.controls['newUser.name']?.touched 
       && !form.form.controls['newUser.name']?.valid">Reguired !!</span>
       </div>
       <label > age</label>
       <div>
-      <input type="number" name="newUser.age" [(ngModel)]="newUser.age">
+      <input type="number" name="newUser.age" [(ngModel)]="NewUser.age">
       </div>
       <label> email </label>
       <div>
-      <input type="email" [(ngModel)]="newUser.email" required email name="newUser.email">
+      <input type="email" [(ngModel)]="NewUser.email" required email name="newUser.email">
       <span *ngIf="form.form.controls['newUser.email']?.touched 
       && !form.form.controls['newUser.email']?.valid">Reguired and must be an email !!</span>
       </div>
       <label> password</label>
       <div>
-      <input type="password" [(ngModel)]="newUser.password" required name="newUser.password">
+      <input type="password" [(ngModel)]="NewUser.password" required name="newUser.password">
       <span *ngIf="form.form.controls['newUser.password']?.touched 
       && !form.form.controls['newUser.password']?.valid">Reguired !!</span>
     </div>

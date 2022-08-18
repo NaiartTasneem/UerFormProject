@@ -1,5 +1,5 @@
 <h1>hello !</h1>
-<app-user-form [newUser]="newUser" (NewUser)="AddUser(newUser)"></app-user-form>
+<app-user-form (UserVm)="AddUser($event)"></app-user-form>
 
 <br />
 <br />

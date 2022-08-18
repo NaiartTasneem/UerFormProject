@@ -1,13 +1,8 @@
 import { formatCurrency } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
-export interface userVm {
-  id:Number;
-  name:String;
-  email:String;
-  age:Number;
-  password:String;
-}
+import { User } from './user-form/user-form.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,26 +10,23 @@ export interface userVm {
 })
 export class AppComponent {
   title = 'UserProject';
-  // name:string ="Tasneem";
-  //x:Xtype={name="tasnem"} ->object
-  //x:string[]=["assets"] ->array 
-
-  UserList:userVm[]=[
+  @Input() UserList:User[]=[
 
   ]
-  newUser:userVm= {id:0 , name:'' ,email:'' , age:0 ,password:''};
+  //= {id:0 , name:'' ,email:'' , age:0 ,password:''};
   i:number =this.UserList.length;
-  AddUser(newUser:userVm){
-    //this.UserList.push({...this.newUser})
-   // let i=0;
-    this.UserList.push({id:this.i,name:this.newUser.name,age:this.newUser.age,email:this.newUser.email,password:this.newUser.password});
-    this.i++;
+  AddUser(user:User){
+    
+    this.UserList.push(user);
   }
   
-  deleteUser(user: userVm){
+  deleteUser(user:User){
     let i= this.UserList.indexOf(user);
     if (i>=0){
       this.UserList.splice(i,1);
     }
   }  
+  /*UpdateUser(user:User){
+
+  }*/
 }

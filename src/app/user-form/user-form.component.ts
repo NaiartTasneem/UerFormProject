@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { userVm } from '../app.component';
+//import { userVm } from '../app.component';
 
 @Component({
   selector: 'app-user-form',
@@ -9,9 +9,8 @@ import { userVm } from '../app.component';
 })
 export class UserFormComponent implements OnInit {
   
-@Input() newUser:userVm ={id:0 , name:'' ,email:'' , age:0 ,password:''};
-@Output() NewUser :EventEmitter<userVm>=new EventEmitter<userVm>();
-
+@Output() UserVm =new EventEmitter<User>();
+public NewUser:User ={id:0 , name:'' ,email:'' , age:0 ,password:''};
 
   constructor() { }
 
@@ -22,9 +21,17 @@ export class UserFormComponent implements OnInit {
     if(!form.form.valid){
       form.form.markAllAsTouched();
       }else{
-        this.NewUser.emit(); 
+        this.UserVm.emit(this.NewUser); 
       }
 
 
   }
+
+}
+export interface User{
+  id:Number;
+  name:String;
+  email:String;
+  age:Number;
+  password:String;
 }
