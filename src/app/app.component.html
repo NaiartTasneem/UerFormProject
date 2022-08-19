@@ -1,29 +1,124 @@
-<h1>hello !</h1>
-<app-user-form (UserVm)="AddUser($event)"></app-user-form>
+<!--<h1>hello app !</h1><app-user-form [UserUpdate]="UserToUpdate" (UserVm)="AddUser($event)"></app-user-form> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task1</title>
 
-<br />
-<br />
-<br />
+    <style>
+        *{
+            padding:0%;
+            margin: 0%;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(46, 46, 247);
+            height: 100vh;
+            position: relative;
+        }
+        .header{
+            min-height: 60px;
+            background-color: #9ED2C6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
+            color: rgb(255, 255, 255);
+        }
+        .header .logo{
+            font-size: x-large;
+        }
 
-<h2>System Users</h2>
+        
+        button{
+            background-color: white;
+            font-size: medium;
+            color: #9ED2C6 ;
+            border-radius: 15px;
+            border: 1px solid;
+            margin: auto;
+            padding: 20px;
+            display: block;
+            width: 200px;
+            
+        }
+        button:hover{
+            background-color:#9ED2C6 ;
+            color: white;
+        }
 
-    <table border="1">
-        <thead>
-        <tr>
-            <th >#</th>
-            <th >Name</th>
-            <th >Age</th>
-            <th >Email</th>
-            <th ></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let user of UserList" i = index>
-            <td> {{user.id}} </td>
-            <td> {{user.name}}</td>
-            <td> {{user.age}}</td>
-            <td> {{user.email}}</td>
-            <td> <button (click)="deleteUser(user)">delete</button> </td>
-        </tr>
-        </tbody>
-    </table>
+        .content{
+            background-color: white;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+        } 
+        .left{
+            width:600px;
+            background-color:#d6c9b1;
+            margin: 5px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content:space-around;
+            align-items: center;
+
+        }
+        .right{
+            flex: 5;
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+            /* align-items:center;*/
+        }
+        .right-up{
+            background-color:#F7ECDE;
+            height: 45%;
+            
+        }
+        .right-down{
+            flex-grow: 1;
+            background-color: #E9DAC1;
+            height: 45%;
+        
+        }
+        .footer{
+            background-color: rgb(29, 28, 28);
+            color: #54BAB9;
+            font-size: x-large;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">Routing In Angular</div>
+        </div>
+        <div class="content">
+            <div class="left">
+                <div>
+                <button routerLink="/user-list" >User List</button>
+                <button routerLink="/user-form" >User Form</button>
+            </div>
+            </div>
+            <div class="right">
+            <router-outlet></router-outlet>
+            </div>
+        </div>
+        <div class="footer"><p>Footer</p></div>
+    </div>
+</body>
+</html>

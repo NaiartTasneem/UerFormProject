@@ -1,7 +1,6 @@
-import { formatCurrency } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { User } from './user-form/user-form.component';
+
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -10,23 +9,4 @@ import { User } from './user-form/user-form.component';
 })
 export class AppComponent {
   title = 'UserProject';
-  @Input() UserList:User[]=[
-
-  ]
-  //= {id:0 , name:'' ,email:'' , age:0 ,password:''};
-  i:number =this.UserList.length;
-  AddUser(user:User){
-    
-    this.UserList.push(user);
-  }
-  
-  deleteUser(user:User){
-    let i= this.UserList.indexOf(user);
-    if (i>=0){
-      this.UserList.splice(i,1);
-    }
-  }  
-  /*UpdateUser(user:User){
-
-  }*/
 }

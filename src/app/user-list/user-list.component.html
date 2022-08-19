@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User list</title>
+
+    <style>
+        button{
+            background-color: white;
+            font-size: medium;
+            color: #9ED2C6 ;
+            border-radius: 15px;
+            border: 1px solid;
+            padding: 10px;
+            display: block;
+            width: 170px;
+            margin-top: 10px;
+            
+        }
+        button:hover{
+            background-color:#9ED2C6 ;
+            color: white;
+        }
+        </style>
+</head>
+<body>
+    <h2>System Users</h2>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th >#</th>
+            <th >Name</th>
+            <th >Age</th>
+            <th >Email</th>
+            <th ></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users" i = index>
+            <td> {{user.id}} </td>
+            <td> {{user.name}}</td>
+            <td> {{user.age}}</td>
+            <td> {{user.email}}</td>
+            <td> <button (click)="deleteUser(user)">delete</button> </td>
+        </tr>
+        </tbody>
+    </table> 
+</body>
+</html>
+

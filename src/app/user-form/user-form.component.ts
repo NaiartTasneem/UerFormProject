@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+import { Component, OnInit,  } from '@angular/core';
 import { NgForm } from '@angular/forms';
-//import { userVm } from '../app.component';
+import { SharedServiceService, User } from '../shared-service.service';
+
 
 @Component({
   selector: 'app-user-form',
@@ -8,30 +10,29 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit {
-  
-@Output() UserVm =new EventEmitter<User>();
+
 public NewUser:User ={id:0 , name:'' ,email:'' , age:0 ,password:''};
 
-  constructor() { }
+  constructor(private UserService:SharedServiceService) {
+
+    }
 
   ngOnInit(): void {
     
   }
+  i:number =this.UserService.UserList.length;
   AddUser(form:NgForm){
     if(!form.form.valid){
       form.form.markAllAsTouched();
       }else{
-        this.UserVm.emit(this.NewUser); 
+        this.NewUser.id=this.i;
+        this.i++;
+      this.UserService.UserList.push(this.NewUser);
+      this.NewUser={id:0 , name:'' ,email:'' , age:0 ,password:''};
       }
 
 
   }
 
 }
-export interface User{
-  id:Number;
-  name:String;
-  email:String;
-  age:Number;
-  password:String;
-}
+
