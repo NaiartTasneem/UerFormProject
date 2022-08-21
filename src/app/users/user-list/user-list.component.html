@@ -34,6 +34,7 @@
             <th >#</th>
             <th >Name</th>
             <th >Age</th>
+            <th >Date Of Birth</th>
             <th >Email</th>
             <th ></th>
         </tr>
@@ -42,7 +43,8 @@
         <tr *ngFor="let user of users" i = index>
             <td> {{user.id}} </td>
             <td> {{user.name}}</td>
-            <td> {{user.age}}</td>
+            <td> {{user.age  }}</td>
+            <td> {{user.DOB | date }}</td>
             <td> {{user.email}}</td>
             <td> <button (click)="deleteUser(user)">delete</button> </td>
         </tr>

@@ -38,9 +38,9 @@
     <span *ngIf="form.form.controls['newUser.name']?.touched 
     && !form.form.controls['newUser.name']?.valid">Reguired !!</span>
     </div>
-    <label > age</label>
+    <label > Date Of Birth</label>
     <div>
-    <input type="number" name="newUser.age" [(ngModel)]="NewUser.age">
+    <input type="date" name="newUser.DOB" [(ngModel)]="NewUser.DOB ">
     </div>
     <label> email </label>
     <div>

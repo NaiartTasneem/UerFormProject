@@ -4,21 +4,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserFormComponent } from './user-form/user-form.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserFormComponent } from './users/user-form/user-form.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { GetAgePipe } from './get-age.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserFormComponent,
-    UserListComponent
+    UserListComponent,
+    GetAgePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [GetAgePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

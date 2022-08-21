@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SharedServiceService, User } from '../shared-service.service';
+import { SharedServiceService, User } from '../../shared-service.service';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -7,7 +7,7 @@ import { SharedServiceService, User } from '../shared-service.service';
 })
 export class UserListComponent implements OnInit {
 
-  users:{ id?:Number ,name:String, email:String, age:Number, password:String;}[]=[];
+  users:{ id?:Number ,name:String, email:String, age:Number, DOB:Date, password:String;}[]=[];
   constructor(private UserService:SharedServiceService) {
       
   }
@@ -16,7 +16,7 @@ export class UserListComponent implements OnInit {
     this.users=this.UserService.UserList;
   }
   i:number =this.UserService.UserList.length;
- /* AddUser(user:User){
+/* AddUser(user:User){
       
     user.id=this.i;
     this.UserService.UserList.push({...user});
