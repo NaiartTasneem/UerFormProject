@@ -13,27 +13,32 @@ import { SharedServiceService, User } from '../../shared-service.service';
 })
 export class UserFormComponent implements OnInit {
 
-public NewUser: User ={id:0 , name:'' ,email:'' , age:0, DOB: new Date() ,password:''};
+public NewUser: User ={firstName:'' ,lastName:''};
+//UserList:{ id?:Number ,name:String, email:String, age:Number, DOB:Date, password:String;}[]=[];
+UserList:{  firstName:string,lastName:string;}[]=[];
 
   constructor(private UserService:SharedServiceService, 
   public router:Router,public getAge:GetAgePipe) {
 
     }
 
-  ngOnInit(): void {
-    
-  }
-  i:number =this.UserService.UserList.length;
+    ngOnInit(): void {
+      
+      //this.users=this.UserService.UserList;
+      
+    }
+  i:number =this.UserList.length;
   AddUser(form:NgForm){
     if(!form.form.valid){
       form.form.markAllAsTouched();
       }else{
-        this.NewUser.id=this.i;
+        //this.NewUser.id=this.i;
         this.i++;
-      this.NewUser.age=this.getAge.transform(this.NewUser.DOB);
-      this.UserService.UserList.push(this.NewUser);
+      //this.NewUser.age=this.getAge.transform(this.NewUser.DOB);
+      this.UserService.PostUser(this.NewUser).subscribe();
+      //this.UserList.push(this.NewUser);
       this.router.navigate(['/users/user-list']);
-      this.NewUser={id:0 , name:'' ,email:'' , age:0, DOB:new Date() ,password:''};
+      //this.NewUser={id:0 , name:'' ,email:'' , age:0, DOB:new Date() ,password:''};
       }
 
 

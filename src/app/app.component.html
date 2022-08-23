@@ -12,7 +12,7 @@
             padding:0%;
             margin: 0%;
         }
-        .container{
+        .containerd{
             display: flex;
             flex-direction: column;
             background-color: rgb(46, 46, 247);
@@ -21,35 +21,23 @@
         }
         .header{
             min-height: 60px;
-            background-color: #9ED2C6;
+            background-color: #6c757d;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 100%;
+            /* align-items: center; */
+            /* justify-content: center; */
             flex-direction: column;
             
             color: rgb(255, 255, 255);
         }
         .header .logo{
-            font-size: x-large;
+            font-size: large;
+            padding: 20px;
+            font-weight: bold;
+            color: white;
         }
 
         
-        button{
-            background-color: white;
-            font-size: medium;
-            color: #9ED2C6 ;
-            border-radius: 15px;
-            border: 1px solid;
-            margin: auto;
-            padding: 20px;
-            display: block;
-            width: 200px;
-            
-        }
-        button:hover{
-            background-color:#9ED2C6 ;
-            color: white;
-        }
 
         .content{
             background-color: white;
@@ -58,67 +46,56 @@
             flex-direction: row;
         } 
         .left{
+            padding-top: 20px;
             width:600px;
-            background-color:#d6c9b1;
-            margin: 5px;
+            background-color:#e9ecef;
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content:space-around;
-            align-items: center;
-
+            /* align-items: center;   */
         }
+        .leftItem{
+            font-weight: bold;
+            display: block;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        .line {
+        background-color:rgb(221, 219, 219);
+        height: 0.5px;
+        width: 300px;
+        display: block;
+        margin: 20px auto;}
         .right{
             flex: 5;
             display: flex;
             flex-direction: column;
             padding: 5px;
-            /* align-items:center;*/
         }
-        .right-up{
-            background-color:#F7ECDE;
-            height: 45%;
-            
-        }
-        .right-down{
-            flex-grow: 1;
-            background-color: #E9DAC1;
-            height: 45%;
-        
-        }
-        .footer{
-            background-color: rgb(29, 28, 28);
-            color: #54BAB9;
-            font-size: x-large;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            position: fixed;
-        }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="containerd">
         <div class="header">
-            <div class="logo">Routing In Angular</div>
+            <div class="logo">APP LOGO</div>
         </div>
         <div class="content">
             <div class="left">
-                <div>
-                <button routerLink="/users/user-list" >User List</button>
-                <button routerLink="/users/user-form" >User Form</button>
-            </div>
+                <div class="leftItem"  routerLink="/users/user-list">Users</div>
+                <span class="line"></span>
+                <div class="leftItem" routerLink="/Posts" >Posts</div>
+                <span class="line"></span>
+                <div class="leftItem" >Settings</div>
+                <span class="line"></span>
+
             </div>
             <div class="right">
             <router-outlet></router-outlet>
             </div>
         </div>
-        <div class="footer"><p>Footer</p></div>
+        <!-- <div class="footer"><p>Footer</p></div> -->
     </div>
 </body>
 </html>

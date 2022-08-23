@@ -7,49 +7,68 @@
     <title>User list</title>
 
     <style>
-        button{
-            background-color: white;
-            font-size: medium;
-            color: #9ED2C6 ;
-            border-radius: 15px;
-            border: 1px solid;
-            padding: 10px;
-            display: block;
-            width: 170px;
-            margin-top: 10px;
+        .rounded-Button{
+            font-size: large;
+            border-radius: 50%;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
             
         }
-        button:hover{
-            background-color:#9ED2C6 ;
-            color: white;
+        .table{
+            box-shadow: 1px 1px 1px #999;
+            -moz-box-shadow: 0 0 5px #888;
+            -webkit-box-shadow: 0 0 5px#888;
+            box-shadow: 0 0 5px #888;
+        }
+        .Head{
+            font-size: X-large;
+            display: inline;
+            font-weight: bold;
+        }
+        button {
+            margin-right: 5px;
         }
         </style>
 </head>
 <body>
-    <h2>System Users</h2>
-
-    <table border="1">
+    <div style="padding: 20px;">
+        <div class="row">
+            <div class="col-auto me-auto  Head">Users</div>
+            <div class="col-auto"> <button class="btn btn-secondary me-md-2 rounded-Button" routerLink="/users/user-form" type="button"> + </button>
+            </div>
+            </div>
+<!-- <p class="Head">Users</p>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-secondary me-md-2 rounded-Button" routerLink="/users/user-form" type="button"> + </button>
+    </div>--> 
+    </div>
+    <table class="table">
         <thead>
-        <tr>
-            <th >#</th>
-            <th >Name</th>
-            <th >Age</th>
-            <th >Date Of Birth</th>
-            <th >Email</th>
-            <th ></th>
-        </tr>
+    <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <!-- <th scope="col">Age</th> -->
+            <!-- <th scope="col">DOB</th> -->
+            <!-- <th scope="col">Email</th> -->
+            <th scope="col"> </th>
+    </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let user of users" i = index>
-            <td> {{user.id}} </td>
-            <td> {{user.name}}</td>
-            <td> {{user.age  }}</td>
-            <td> {{user.DOB | date }}</td>
-            <td> {{user.email}}</td>
-            <td> <button (click)="deleteUser(user)">delete</button> </td>
-        </tr>
+            <tr *ngFor="let user of UserList" i = index>
+                <td> {{user.firstName}} </td>
+                <td> {{user.lastName}}</td>
+                <!-- <td> {{user.age }}</td> -->
+                <!-- <td> {{user.DOB | date }}</td> -->
+                <!-- <td> {{user.email}}</td> -->
+                <td> <button class="btn btn-secondary" routerLink="/users/user-form">Edit</button> <button class="btn btn-danger"(click)="deleteUser(user)"> X</button> </td>
+            </tr> 
         </tbody>
-    </table> 
+    </table>
+    <p style="color: #888" >{{i}} items to show </p>
 </body>
+
+
 </html>
 

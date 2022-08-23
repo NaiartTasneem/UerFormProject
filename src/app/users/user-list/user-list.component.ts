@@ -6,16 +6,18 @@ import { SharedServiceService, User } from '../../shared-service.service';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-
-  users:{ id?:Number ,name:String, email:String, age:Number, DOB:Date, password:String;}[]=[];
+  UserList:{  firstName:string,lastName:string;}[]=[];
+  //UserList:{ id?:Number ,name:String, email:String, age:Number, DOB:Date, password:String;}[]=[];
   constructor(private UserService:SharedServiceService) {
       
   }
 
   ngOnInit(): void {
-    this.users=this.UserService.UserList;
+    this.UserService.GetUser().subscribe(data=>this.UserList=data);
+    //this.users=this.UserService.UserList;
+    
   }
-  i:number =this.UserService.UserList.length;
+  i:number =this.UserList.length;
 /* AddUser(user:User){
       
     user.id=this.i;
@@ -24,9 +26,9 @@ export class UserListComponent implements OnInit {
   }*/
   
   deleteUser(user:User){
-    let i= this.UserService.UserList.indexOf(user);
+    let i= this.UserList.indexOf(user);
     if (i>=0){
-      this.UserService.UserList.splice(i,1);
+      this.UserList.splice(i,1);
     }
   }  
 

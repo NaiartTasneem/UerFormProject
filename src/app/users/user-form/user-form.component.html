@@ -7,31 +7,75 @@
   <title>User Form</title>
 
   <style>
-    button{
-        background-color: white;
-        font-size: medium;
-        color: #9ED2C6 ;
-        border-radius: 15px;
-        border: 1px solid;
-        padding: 10px;
-        display: block;
-        width: 170px;
-        margin-top: 10px;
-        
-    }
-    button:hover{
-        background-color:#9ED2C6 ;
-        color: white;
-    }
+.star{
+color:red;}
+.container{
+            margin: auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            box-shadow: 1px 1px 1px #999;
+            -moz-box-shadow: 0 0 5px #888;
+            -webkit-box-shadow: 0 0 5px#888;
+            box-shadow: 0 0 5px #888;
+        }
+.form-group{
+  margin: 10px;
+}
 
 </style>
 </head>
 <body>
+  <h2>Add User </h2>
+<div style="display:block ;" class="container">
   
-<div style="display:block ;">
-  <h2>User Form</h2>
   <form #form="ngForm" (ngSubmit)="AddUser(form)" >
+
+    <div class="form-group row">
+      <label for="inputFirstName" class="col-sm-2 col-form-label">First Name <sup class="star">*</sup> </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+      </div>
+    </div> 
+
+    <div class="form-group row">
+      <label for="inputLastName" class="col-sm-2 col-form-label">Last Name <sup class="star">*</sup> </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+      </div>
+    </div> 
+
+    <div class="form-group row">
+      <label for="inputDate" class="col-sm-2 col-form-label">Birth Date </label>
+      <div class="col-sm-10">
+        <input type="Date" class="form-control" id="inputDate" placeholder="birth date">
+      </div>
+    </div> 
+
+    <div class="form-group row">
+      <label for="inputemail" class="col-sm-2 col-form-label">Email <sup class="star">*</sup> </label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="inputemail" placeholder="email">
+      </div>
+    </div>
+
     
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password <sup class="star">*</sup> </label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+      </div>
+    </div>
+
+    <!-- <label> FirstName <sup class="star">*</sup> </label> 
+    <div>
+    <input type="text" [(ngModel)]="NewUser.firstName" required name="newUser.firstName">
+    <span *ngIf="form.form.controls['newUser.firstName']?.touched 
+    && !form.form.controls['newUser.firstName']?.valid">Reguired !!</span>
+    </div>
+    <label > LastName <sup class="star">*</sup> </label>
+    <div>
+    <input type="text" name="newUser.lastName" [(ngModel)]="NewUser.lastName ">
+    </div>
     <label> Name </label> 
     <div>
     <input type="text" [(ngModel)]="NewUser.name" required name="newUser.name">
@@ -42,19 +86,19 @@
     <div>
     <input type="date" name="newUser.DOB" [(ngModel)]="NewUser.DOB ">
     </div>
-    <label> email </label>
+    <label> email <sup class="star">*</sup> </label>
     <div>
     <input type="email" [(ngModel)]="NewUser.email" required email name="newUser.email">
     <span *ngIf="form.form.controls['newUser.email']?.touched 
     && !form.form.controls['newUser.email']?.valid">Reguired and must be an email !!</span>
     </div>
-    <label> password</label>
+    <label> password <sup class="star">*</sup> </label>
     <div>
     <input type="password" [(ngModel)]="NewUser.password" required name="newUser.password">
     <span *ngIf="form.form.controls['newUser.password']?.touched 
     && !form.form.controls['newUser.password']?.valid">Reguired !!</span>
-  </div>
-  <button type="submit">Add User</button>
+  </div>-->
+  <button type="submit" class="btn btn-secondary" >Add </button>
   
   </form>
   </div>
