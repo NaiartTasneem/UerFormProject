@@ -33,28 +33,28 @@ color:red;}
     <div class="form-group row">
       <label for="inputFirstName" class="col-sm-2 col-form-label">First Name <sup class="star">*</sup> </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+        <input type="text" class="form-control" id="inputFirstName" placeholder="First Name"  [(ngModel)]="NewUser.firstName" required name="newUser.firstName">
       </div>
     </div> 
 
     <div class="form-group row">
       <label for="inputLastName" class="col-sm-2 col-form-label">Last Name <sup class="star">*</sup> </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+        <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="newUser.lastName" [(ngModel)]="NewUser.lastName ">
       </div>
     </div> 
 
     <div class="form-group row">
       <label for="inputDate" class="col-sm-2 col-form-label">Birth Date </label>
       <div class="col-sm-10">
-        <input type="Date" class="form-control" id="inputDate" placeholder="birth date">
+        <input type="Date" class="form-control" id="inputDate" placeholder="birth date"name="newUser.DOB" [(ngModel)]="NewUser.DOB ">
       </div>
     </div> 
 
     <div class="form-group row">
       <label for="inputemail" class="col-sm-2 col-form-label">Email <sup class="star">*</sup> </label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="inputemail" placeholder="email">
+        <input type="email" class="form-control" id="inputemail" placeholder="email" [(ngModel)]="NewUser.email" required email name="newUser.email">
       </div>
     </div>
 
@@ -62,7 +62,7 @@ color:red;}
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-2 col-form-label">Password <sup class="star">*</sup> </label>
       <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" >
       </div>
     </div>
 
@@ -98,7 +98,7 @@ color:red;}
     <span *ngIf="form.form.controls['newUser.password']?.touched 
     && !form.form.controls['newUser.password']?.valid">Reguired !!</span>
   </div>-->
-  <button type="submit" class="btn btn-secondary" >Add </button>
+  <button type="submit" class="btn btn-secondary" > {{id>-1? "Update": "Add"}}</button>
   
   </form>
   </div>

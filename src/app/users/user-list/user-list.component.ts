@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedServiceService, User } from '../../shared-service.service';
 @Component({
   selector: 'app-user-list',
@@ -6,9 +7,15 @@ import { SharedServiceService, User } from '../../shared-service.service';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-  UserList:{  firstName:string,lastName:string;}[]=[];
-  //UserList:{ id?:Number ,name:String, email:String, age:Number, DOB:Date, password:String;}[]=[];
-  constructor(private UserService:SharedServiceService) {
+  UserList:{
+    id?:Number,
+    firstName:string,
+    lastName:string;
+    DOB:Date,
+    email:String,
+  }[]=[];
+  
+  constructor(private UserService:SharedServiceService ,public router:Router) {
       
   }
 
@@ -17,18 +24,20 @@ export class UserListComponent implements OnInit {
     //this.users=this.UserService.UserList;
     
   }
-  i:number =this.UserList.length;
+
+  i =this.UserList.length;
 /* AddUser(user:User){
-      
     user.id=this.i;
     this.UserService.UserList.push({...user});
     this.i++;
   }*/
-  
+  editUser(user: User) {
+    this.router.navigate(["users/" + user.id]);
+  }
   deleteUser(user:User){
-    let i= this.UserList.indexOf(user);
-    if (i>=0){
-      this.UserList.splice(i,1);
+    let z= this.UserList.indexOf(user);
+    if (z>=0){
+      this.UserList.splice(z,1);
     }
   }  
 

@@ -24,16 +24,30 @@
 <body>
     <div class="container shading  p-3 mb-5 bg-white rounded">
     <div class="form-floating ">
-        <textarea class="form-control" placeholder="Add Your Post Here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control" placeholder="Add Your Post Here" id="floatingTextarea21" style="height: 100px"></textarea>
         <label for="floatingTextarea2">Add Your Post </label>
-        <button type="button" class="btn btn-secondary">Share</button>
+        <button type="submit" (click)="AddPost(newpost)" class="btn btn-secondary" >Share</button>
     </div>
 </div>
 
-<div class="container"><p style="font-weight: bold;">Posts</p></div>
-<div class="container  shading p-3 mb-5 bg-white rounded">
-    
+<div class="container" ><p style="font-weight: bold;">Posts</p></div>
+<div id="Demo">
+    <table class="table">
+
+        <tr  *ngFor="let post of PostList; let i = index" >
+        <td ><div class="container shading p-3 mb-5 bg-white rounded">
+            {{post.title}} 
+            <br>
+            {{date | date}}
+        </div></td>  </tr> 
+        
+
+
+
+
+</table>
 </div>
+
 
 
 
